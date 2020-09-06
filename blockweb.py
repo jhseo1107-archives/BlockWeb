@@ -1,5 +1,6 @@
 import http.server
 import os
+import ssl
 
 VERSION = '1.0'
 ERROR_MSG = "404 Error"
@@ -29,7 +30,7 @@ class Run:
         if bool(ssh) == False:
             pass
         else:
-            TCP.socket = ssl
+            TCP.socket = ssl.wrap_socket(TCP.socket, certfile=ssl["cert"], keyfile=ssl["key"])
         TCP.serve_forever()
 
 class BlockWebs(http.server.CGIHTTPRequestHandler):
