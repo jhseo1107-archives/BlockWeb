@@ -8,7 +8,7 @@ PATHS = []
 EVENTS = {}
 
 class Run:
-    def __init__(self, host, port, proj_name, ssl):
+    def __init__(self, host, port, proj_name, ssl_certfile, ssl_keyfile):
         "Write Server Address || Host is String"
         "This code should be written at last line"
         print ("Version {}".format(VERSION))
@@ -27,10 +27,10 @@ class Run:
                 """)
         
         TCP = http.server.HTTPServer((host, port), PWS)
-        if bool(ss) == False:
+        if bool(ssl_certfile) == False:
             pass
         else:
-            TCP.socket = ssl.wrap_socket(TCP.socket, certfile=ssl["cert"], keyfile=ssl["key"])
+            TCP.socket = ssl.wrap_socket(TCP.socket, certfile=ssl_certfile, keyfile=ssl_keyfile)
         TCP.serve_forever()
 
 class BlockWebs(http.server.CGIHTTPRequestHandler):
