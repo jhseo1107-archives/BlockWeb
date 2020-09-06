@@ -27,7 +27,7 @@ class Run:
                 """)
         
         TCP = http.server.HTTPServer((host, port), PWS)
-        if bool(ssh) == False:
+        if bool(ss) == False:
             pass
         else:
             TCP.socket = ssl.wrap_socket(TCP.socket, certfile=ssl["cert"], keyfile=ssl["key"])
