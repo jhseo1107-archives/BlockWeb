@@ -117,6 +117,7 @@ class BlockWebs(http.server.CGIHTTPRequestHandler):
                 f.write(HTML_FILE)
 
 class Response_Handler:
+    # Just Method Decorator
     def __init__(self, route, event):
         #self.callback = callback
         self.route = route
