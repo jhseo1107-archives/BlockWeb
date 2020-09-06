@@ -1,6 +1,7 @@
 import http.server
 import os
 
+VERSION = '1.0'
 ERROR_MSG = "404 Error"
 PATHS = []
 EVENTS = {}
@@ -9,6 +10,7 @@ class Run:
     def __init__(self, host, port, proj_name):
         "Write Server Address || Host is String"
         "This code should be written at last line"
+        print ("Version {}".format(VERSION))
         if proj_name == "":
             print ('\033[96m' + "Project Name: Default" + '\033[0m' )
         else:
